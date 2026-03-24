@@ -1,5 +1,5 @@
 // src/App.jsx
-import { Routes, Route, Navigate } from 'react-router-dom'; // IMPORTAÇÃO CORRIGIDA AQUI
+import { Routes, Route, Navigate } from 'react-router-dom'; 
 import { useAuth } from './contexts/AuthContext';
 import { Layout } from './components/Layout';
 import { Loader2 } from 'lucide-react';
@@ -10,14 +10,14 @@ import { Dashboard } from './pages/Dashboard';
 import { Usuarios } from './pages/Usuarios';
 import { Estrutura } from './pages/Estrutura';
 import { PainelOperacional } from './pages/PainelOperacional';
-import { Historico } from './pages/Historico'; // Certifique-se que este arquivo existe
-import { ConfigIncidentes } from './pages/ConfigIncidentes'; // Certifique-se que este arquivo existe
+import { Historico } from './pages/Historico'; 
+import { ConfigIncidentes } from './pages/ConfigIncidentes';
 
 // COMPONENTE DE ROTA PRIVADA COM FILTRO DE PERFIL
 function PrivateRoute({ children, perfisPermitidos }) {
   const { user, loading } = useAuth();
 
-  // 1. Enquanto carrega a sessão do localStorage
+  
   if (loading) {
     return (
       <div className="h-screen w-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">

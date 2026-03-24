@@ -10,7 +10,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter> {/* O Router deve envolver TUDO */}
+    <BrowserRouter> 
       <ThemeProvider>
         <AuthProvider>
           <App />

@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
   async function login(email, password) {
     const emailTratado = email?.trim().toLowerCase();
 
-    // Admin Master (Configurado no .env)
+    // Admin Master
     if (emailTratado === import.meta.env.VITE_ADMIN_EMAIL?.toLowerCase() && 
         password === import.meta.env.VITE_ADMIN_PASSWORD) {
       const admin = { nome: 'Super Admin', email: emailTratado, perfil: 'Admin', area: 'Geral' };
