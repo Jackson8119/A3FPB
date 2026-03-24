@@ -5,8 +5,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
 import toast from 'react-hot-toast';
-import { Loader2 } from 'lucide-react'; // Ícone de carregamento
+import { Loader2, Moon, Sun } from 'lucide-react'; // Ícone de carregamento
 
 const loginSchema = z.object({
   email: z.string().email("Formato de e-mail inválido.").min(1, "O e-mail é obrigatório."),
@@ -21,6 +22,7 @@ export function Login() {
 
   const { login } = useAuth();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   // 1. Tornamos a função assíncrona (async)
   async function handleLogin(data) {
@@ -48,7 +50,14 @@ export function Login() {
   }
 
   return (
-    <div className="flex h-screen items-center justify-center bg-slate-50 dark:bg-slate-900 transition-colors duration-300 px-4">
+    <div className="relative flex h-screen items-center justify-center bg-slate-50 dark:bg-slate-900 transition-colors duration-300 px-4">
+      <button 
+        onClick={toggleTheme}
+        className="absolute top-6 right-6 p-3 rounded-full bg-white dark:bg-slate-800 shadow-md text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700"
+      >
+        {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+      </button>
+
       <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl w-full max-w-md border border-slate-100 dark:border-slate-700 transition-colors duration-300">
         
         <div className="text-center mb-8">
